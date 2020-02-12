@@ -1,12 +1,8 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #555;
     margin: 0;
+    padding-top: 83px;
 }
 
 h2 {
@@ -70,97 +66,117 @@ button {
     width: 100%;
     display: flex;
     align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 1;
     > * {
         margin: 1rem;
     }
 }
 
-.game {
-    flex: 1;
+.wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    &.over {
-        .board {
-            pointer-events: none;
-        }
-        h2.game-over {
-            display: block;
-        }
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+
+    .filler {
+        width: 100%;
+        height: 83px;
     }
 
-    &.won {
-        .board {
-            pointer-events: none;
-        }
-        h2.game-won {
-            display: block;
-        }
-    }
-
-    h2 {
-        &.game-over {
-            color: tomato;
-            display: none;
-        }
-        &.game-won {
-            color: MediumSpringGreen;
-            display: none;
-        }
-    }
-}
-
-.board {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 5px;
-    margin: 1rem;
-
-    .field {
-        width: 30px;
-        height: 30px;
-        border-radius: 5px;
-        background: #ddd;
-        cursor: pointer;
+    .game {
+        flex: 1;
         display: flex;
         justify-content: center;
         align-items: center;
-        &:hover {
-            background: #ccc;
+        text-align: center;
+        &.over {
+            .board {
+                pointer-events: none;
+            }
+            h2.game-over {
+                display: block;
+            }
         }
 
-        &.reveiled {
-            background: #eee;
+        &.won {
+            .board {
+                pointer-events: none;
+            }
+            h2.game-won {
+                display: block;
+            }
         }
 
-        &.mine {
-            background: tomato;
-            color: #fff;
-        }
-
-        &.flagged {
-            color: tomato;
+        h2 {
+            &.game-over {
+                color: tomato;
+                display: none;
+            }
+            &.game-won {
+                color: MediumSpringGreen;
+                display: none;
+            }
         }
     }
-}
 
-.boardStatus {
-    color: #888;
-    border-radius: 5px;
-    margin: 1rem;
-    padding: 1rem;
-    display: none;
-}
+    .board {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 5px;
+        margin: 1rem;
 
-footer {
-    text-align: center;
-    color: #aaa;
-    a {
-        text-decoration: none;
+        .field {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            background: #ddd;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &:hover {
+                background: #ccc;
+            }
+
+            &.reveiled {
+                background: #eee;
+            }
+
+            &.mine {
+                background: tomato;
+                color: #fff;
+            }
+
+            &.flagged {
+                color: tomato;
+            }
+        }
+    }
+
+    .boardStatus {
+        color: #888;
+        border-radius: 5px;
+        margin: 1rem;
+        padding: 1rem;
+        display: none;
+    }
+
+    footer {
+        text-align: center;
         color: #aaa;
-        &:hover {
-            color: tomato;
+        a {
+            text-decoration: none;
+            color: #aaa;
+            &:hover {
+                color: tomato;
+            }
         }
     }
 }
