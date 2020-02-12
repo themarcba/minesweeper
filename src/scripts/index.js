@@ -1,6 +1,8 @@
 import '../styles/index.scss'
 import '@fortawesome/fontawesome-free/js/all'
 
+import confetti from 'canvas-confetti'
+
 import { Game } from './Game'
 
 // Elements in the DOM that need to be accessed during the game
@@ -46,6 +48,10 @@ const gameOver = () => {
 // When the game has been won
 const gameWon = () => {
     gameElement.classList.add('won')
+    confetti({
+        particleCount: 300,
+        spread: 100
+    })
 }
 
 // Create a new game
@@ -73,9 +79,11 @@ const newGame = () => {
     boardElement.innerHTML = ''
 
     // Create initial field elements
-    game.fields.forEach((rowField, rowFieldIndex) => { // Rows
-        rowField.forEach((columnField, columnFieldIndex) => { // Columns
-            
+    game.fields.forEach((rowField, rowFieldIndex) => {
+        // Rows
+        rowField.forEach((columnField, columnFieldIndex) => {
+            // Columns
+
             // Create & initialize a field element
             let newField = document.createElement('div')
             newField.id = `field_${rowFieldIndex}_${columnFieldIndex}`
