@@ -2,6 +2,7 @@
 
 A web version of the old MineSweeper game.
 
+Check out the demo here 👉 [minesweeper.marc.dev](https://minesweeper.marc.dev)
 
 ### Installation
 

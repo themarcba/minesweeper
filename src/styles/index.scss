@@ -35,13 +35,17 @@ h2 {
 
     input[type='radio'] {
         display: none;
-        &:checked + label {
-            background: #ddd;
-        }
         + label {
             border-radius: 0.5rem;
             font-size: 1.5rem;
             padding: 0.5rem 0.75rem;
+            cursor: pointer;
+            &:hover {
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
+        &:checked + label {
+            background: #ddd;
         }
     }
 }
