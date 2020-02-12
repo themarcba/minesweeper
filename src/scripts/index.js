@@ -1,6 +1,5 @@
 import '../styles/index.scss'
 import '@fortawesome/fontawesome-free/js/all'
-
 import confetti from 'canvas-confetti'
 
 import { Game } from './Game'
@@ -48,8 +47,9 @@ const gameOver = () => {
 // When the game has been won
 const gameWon = () => {
     gameElement.classList.add('won')
+    // Throw some confetti! 🎉
     confetti({
-        particleCount: 300,
+        particleCount: 200,
         spread: 100
     })
 }
