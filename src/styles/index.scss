@@ -180,3 +180,9 @@ button {
         }
     }
 }
+
+@media (max-width: 600px) {
+    .controls {
+        overflow-y: scroll;
+    }
+}
